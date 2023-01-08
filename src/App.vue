@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="container">
-      <UserForm/>
+      <!-- <UserForm/> -->
+      <!-- <SignUp/> -->
+      <UserPage/>
     </div>
     <!-- <my-component /> -->
     <!-- <user-card /> -->
@@ -17,7 +19,9 @@
 // import UserCard from "./components/UserCard.vue";
 // import ImageCat from './components/ImageCat.vue';
 // import ProductList from './components/ProductList.vue';
-import UserForm from './components/UserForm.vue';
+// import UserForm from './components/UserForm.vue';
+// import SignUp from './components/SignUp.vue';
+import UserPage from './components/UserPage.vue';
 export default {
   name: "App",
   components: {
@@ -25,7 +29,9 @@ export default {
     // UserCard,
     // ImageCat
     // ProductList
-    UserForm
+    // UserForm
+    // SignUp
+    UserPage
   },
 };
 </script>
