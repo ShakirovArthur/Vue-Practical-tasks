@@ -61,16 +61,17 @@
     beforeCreate() {
       console.log('beforeCreate')
     },
+    created(){
+      console.log('simplePlugin')
+      // this.$log()
+    },
     methods: {
       closeModal() {
         this.$emit('close')
       },
-      // onBodyScroll() {
-      //   const modalBody = this.$refs.modalBody
-      //   if (modalBody.clientHeight + modalBody.scrollTop >= modalBody.scrollHeight) {
-      //     this.isRulesReaded = true
-      //   }
-      // }
+      onScrollEnd(){
+        this.isRulesReaded = true
+      }
     }
   }
   </script>
