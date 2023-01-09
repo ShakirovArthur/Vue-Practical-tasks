@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <div class="container">
-      <!-- <UserForm/> -->
-      <!-- <SignUp/> -->
-      <UserPage/>
-    </div>
-    <!-- <my-component /> -->
-    <!-- <user-card /> -->
-    <!-- <MyComponent/> два способа писать название комппонента-->
-    <!-- <ImageCat/> -->
-    <!-- <ProductList/> -->
-    
+    <!-- <div class="container"> -->
+    <!-- <UserForm/> -->
+    <!-- <SignUp/> -->
+    <!-- <UserPage/> -->
+    <router-view></router-view>
   </div>
+  <!-- <my-component /> -->
+  <!-- <user-card /> -->
+  <!-- <MyComponent/> два способа писать название комппонента-->
+  <!-- <ImageCat/> -->
+  <!-- <ProductList/> -->
+
+  <!-- </div> -->
 </template>
 
 <script>
@@ -21,7 +22,7 @@
 // import ProductList from './components/ProductList.vue';
 // import UserForm from './components/UserForm.vue';
 // import SignUp from './components/SignUp.vue';
-import UserPage from './components/UserPage.vue';
+// import UserPage from './components/UserPage.vue';
 export default {
   name: "App",
   components: {
@@ -31,7 +32,7 @@ export default {
     // ProductList
     // UserForm
     // SignUp
-    UserPage
+    // UserPage
   },
 };
 </script>
