@@ -2,6 +2,7 @@
   <div class="film-page">
     <div class="container" v-if="film">
       <h1>{{ film.title }}</h1>
+      <div class="line" />
       <img :src="film.img" :alt="film.title" />
       <div class="section">
         <p class="section__title">Немного о сюжете:</p>
@@ -19,18 +20,40 @@
         <p class="section__title">Режисеры:</p>
         <p class="section__description">{{ film.directors.join(", ") }}</p>
       </div>
+      <div class="line" />
+
+      <div class="review">
+        <h3>Смотрели данный фильм ?</h3>
+        <p>Оставьте отзыв:</p>
+        <ul>
+          <li v-for="reaction in reactions" :key="reaction.id">
+            <button type="button" class="btn btn-outline-light">
+              {{ reaction.title }}
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import films from "../mocks/films";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
       film: null,
     };
+  },
+  computed: {
+    ...mapGetters({
+      getReactions: "reactions/getReactions",
+    }),
+    reactions() {
+      return this.getReactions;
+    },
   },
   created() {
     const film = films.find((film) => film.id == this.$route.params.id);
@@ -51,18 +74,14 @@ export default {
   }
   h1 {
     color: #ffffff;
-    margin-bottom: 30px;
     padding-bottom: 15px;
     position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 3px;
-      bottom: 0;
-      left: 0;
-      background: linear-gradient(90deg, #eb5804 0%, rgba(0, 0, 0, 0) 90%);
-    }
+  }
+  .line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #eb5804 0%, rgba(0, 0, 0, 0) 90%);
+    margin-bottom: 45px;
   }
   img {
     object-fit: cover;
@@ -82,6 +101,24 @@ export default {
       color: #ffffff;
       font-size: 18px;
       line-height: 30px;
+    }
+  }
+  .review {
+    h3 {
+      color: #ffffff;
+    }
+    p {
+      font-weight: 600;
+      font-size: 18px;
+      color: #eb5804;
+    }
+    ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      li {
+        margin-right: 15px;
+      }
     }
   }
 }
